@@ -1,9 +1,33 @@
 [project]
-name = "shop-management-saas"
-version = "1.0.0"
-description = "Shop Management SaaS API"
+name = "shop-management-backend"
+version = "0.1.0"
+description = "Shop Management SaaS Backend"
 requires-python = ">=3.12"
+
 dependencies = [
-    "fastapi==0.142.2",
-    "uvicorn[standard]==0.54.0",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic-settings",
+    "sqlalchemy[asyncio]",
+    "asyncpg",
+    "alembic",
+    "bcrypt",
+    "email-validator",
+    "PyJWT"
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "httpx",
+    "ruff"
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
